@@ -1,0 +1,56 @@
+NAME:Samuel Nunoo
+EMAIL:sana2018@mymail.pomona.edu
+ID:010356794
+SLIPDAYS:1
+
+
+NOTE: I intentionally have a long running test with 10,000 iterations to work for the provided gp script without errors!!! 
+Also, one test fails due to calling make clean so all of the output files no longer exist!!!!
+
+QUESTION 2.1.1 - causing conflicts:
+Why does it take many iterations before errors are seen?
+
+The errors occur due to a race condition which relies on timing. This means that
+a particular condition needs to occur before an error is present which in this case has a low chance of occurring. This is because all that is happening is an add and subtract instruction which can occur very quickly (nanoseconds) and a context switch
+must occur inbetween those two operations in order for an error to occur.This is also why you see fewer failures in smaller iterations.
+
+
+QUESTION 2.1.2 - cost of yielding:
+Why are the --yield runs so much slower?
+Where is the additional time going?
+Is it possible to get valid per-operation timings if we are using the --yield option?
+If so, explain how. If not, explain why not.
+
+I believe yields are slower because you waste time descheduling and rescheduling a thread at the end of the queue. Because of this overheaad, it is likely not possible to get vlaid per-operating timings since this scheduling if this descheduling and rescheduling process does not have a consistent timing. This is because you can be in different places in the queue so the time to be run varies and cannot be predicted.
+
+QUESTION 2.1.3 - measurement errors:
+Why does the average cost per operation drop with increasing iterations?
+If the cost per iteration is a function of the number of iterations, how do we know how many iterations to run (or what the "correct" cost is)?
+
+There is constant context switching that occurs within an OS. The more iterations you have, means the less likely any one of those threads will be interrupted at that specific iteration. This is probably one of the reasons.
+Another possible reason is that there could be hardware optimizations that can do branch predictions for operations
+that are repeated numerous times. 
+
+QUESTION 2.1.4 - costs of serialization:
+Why do all of the options perform similarly for low numbers of threads?
+Why do the three protected operations slow down as the number of threads rises?
+
+It is likely that for a low number of threads the main cost of the operation is actually related to overhead and since there are few threads switching between them and the effects of locking are negligible.
+It is likely that as your number of threads increase, the rate of conflicts increase as well. This means that you are more likely to try to acquire a lock that is already acquired which slows down the operation.
+
+QUESTION 2.2.1 - scalability of Mutex
+Compare the variation in time per mutex-protected operation vs the number of threads in Part-1 (adds) and Part-2 (sorted lists).
+Comment on the general shapes of the curves, and explain why they have this shape.
+Comment on the relative rates of increase and differences in the shapes of the curves, and offer an explanation for these difference.
+
+For the sorted list the curve seems to be converging towards 100 and it seems to be hovering steady at 100 for 
+the add operation. This is likely because the CPU architecture is able to perform add operations so quickly that the few nanoseconds that it is in the mutex does not scale as quickly as it would if you had to insert a node to a list.
+
+QUESTION 2.2.2 - scalability of spin locks
+
+Compare the variation in time per protected operation vs the number of threads for list operations protected by Mutex vs Spin locks. Comment on the general shapes of the curves, and explain why they have this shape.
+Comment on the relative rates of increase and differences in the shapes of the curves, and offer an explanation for these differences.
+
+spin lock seems super viable for a few threads since it has a low initial cost but it quickly gets expensive.
+WHereas mutex is moderately expensive but doesn't get more expensive very fast. This is likely due to the fact that wasted cycles that would occur from added threads for the spin lock would be significantly more detrimental
+to time than mutex at higher threads.

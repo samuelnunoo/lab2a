@@ -1,0 +1,103 @@
+{
+  "main": {
+    "id": "bc7bc980d5b9dfb4",
+    "type": "split",
+    "children": [
+      {
+        "id": "18b829ebba07c042",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "docMeta/Tables/UseCases/Share Globals Between FIles.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "95daeb98766210be",
+    "type": "split",
+    "children": [
+      {
+        "id": "631793c58fb297c8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cca5701f58e89c11",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "dde1c63b6e8401e1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "c main routine",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5c9b2b3f0f4d4df2",
+    "type": "split",
+    "children": [
+      {
+        "id": "b95bcd902212a20b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e9e973a202d05a34",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docMeta/Tables/UseCases/Share Globals Between FIles.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "18b829ebba07c042",
+  "lastOpenFiles": [
+    "docMeta/Tables/UseCases/Share Globals Between FIles.md",
+    "Use Cases.md",
+    "DataViews/Types.md",
+    "DataViews/Methods.md",
+    "docMeta/Tables/Features/Part Two - SortedList.md",
+    "Features.md",
+    "docMeta/Tables/UseCases/Print to STderr.md",
+    "docMeta/Tables/UseCases/Yield for a Thread.md",
+    "docMeta/Tables/UseCases/Concatenate Strings in C.md",
+    "docMeta/Tables/UseCases/Passing struct to pthread_create.md"
+  ]
+}
